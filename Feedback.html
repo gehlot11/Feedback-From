@@ -1,54 +1,75 @@
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback Form</title>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 30px;">
 
-<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgL000002BLeI" 
+        method="POST" 
+        style="background-color: #fff; padding: 20px; max-width: 600px; margin: auto; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <FORM> element to your page.             -->
-<!--  ----------------------------------------------------------------------  -->
+    <h2 style="text-align:center; color: #333;">Feedback Form</h2>
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgL000002BLeI" method="POST">
+    <input type="hidden" name="orgid" value="00DgL000002BLeI">
+    <input type="hidden" name="retURL" value="http://">
 
-<input type=hidden name="orgid" value="00DgL000002BLeI">
-<input type=hidden name="retURL" value="http://">
+    <!-- Uncomment for Debugging -->
+    <!--
+    <input type="hidden" name="debug" value="1">
+    <input type="hidden" name="debugEmail" value="mitali.gehlot@outlook.com">
+    -->
 
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-<!--  these lines if you wish to test in debug mode.                          -->
-<!--  <input type="hidden" name="debug" value=1>                              -->
-<!--  <input type="hidden" name="debugEmail"                                  -->
-<!--  value="mitali.gehlot@outlook.com">                                      -->
-<!--  ----------------------------------------------------------------------  -->
+    <label for="name" style="display:block; margin-top: 10px;">Contact Name</label>
+    <input id="name" maxlength="80" name="name" size="40" type="text"
+           style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
 
-<label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+    <label for="email" style="display:block; margin-top: 10px;">Email</label>
+    <input id="email" maxlength="80" name="email" size="40" type="text"
+           style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
 
-<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    <label for="phone" style="display:block; margin-top: 10px;">Phone</label>
+    <input id="phone" maxlength="40" name="phone" size="40" type="text"
+           style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
 
-<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+    <label for="subject" style="display:block; margin-top: 10px;">Subject</label>
+    <input id="subject" maxlength="80" name="subject" size="40" type="text"
+           style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
 
-<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+    <label for="description" style="display:block; margin-top: 10px;">Description</label>
+    <textarea id="description" name="description" rows="4"
+              style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;"></textarea>
 
-<label for="description">Description</label><textarea name="description"></textarea><br>
+    <label for="reason" style="display:block; margin-top: 10px;">Case Reason</label>
+    <select id="reason" name="reason"
+            style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
+      <option value="">--None--</option>
+      <option value="Installation">Installation</option>
+      <option value="Equipment Complexity">Equipment Complexity</option>
+      <option value="Performance">Performance</option>
+      <option value="Breakdown">Breakdown</option>
+      <option value="Equipment Design">Equipment Design</option>
+      <option value="Feedback">Feedback</option>
+      <option value="Other">Other</option>
+    </select>
 
-<label for="reason">Case Reason</label><select  id="reason" name="reason"><option value="">--None--</option><option value="Installation">Installation</option>
-<option value="Equipment Complexity">Equipment Complexity</option>
-<option value="Performance">Performance</option>
-<option value="Breakdown">Breakdown</option>
-<option value="Equipment Design">Equipment Design</option>
-<option value="Feedback">Feedback</option>
-<option value="Other">Other</option>
-</select><br>
+    <label for="type" style="display:block; margin-top: 10px;">Type</label>
+    <select id="type" name="type"
+            style="width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:4px;">
+      <option value="">--None--</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Electrical">Electrical</option>
+      <option value="Electronic">Electronic</option>
+      <option value="Structural">Structural</option>
+      <option value="Other">Other</option>
+    </select>
 
-<label for="type">Type</label><select  id="type" name="type"><option value="">--None--</option><option value="Mechanical">Mechanical</option>
-<option value="Electrical">Electrical</option>
-<option value="Electronic">Electronic</option>
-<option value="Structural">Structural</option>
-<option value="Other">Other</option>
-</select><br>
+    <input type="submit" name="submit" value="Submit Feedback"
+           style="margin-top: 20px; background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px;">
 
-<input type="submit" name="submit">
+  </form>
 
-</form>
+</body>
+</html>
